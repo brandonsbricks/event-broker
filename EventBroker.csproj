@@ -32,25 +32,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IDebug, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\TheDebugAdapter\Builds\IDebug.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="TheDebugAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\TheDebugAdapter\TheDebugAdapter\bin\Debug\TheDebugAdapter.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\GenericEventBroker.cs" />
-    <Compile Include="Wrappers\KeyedEventBroker.cs" />
-    <Compile Include="Wrappers\StaticEventBroker.cs" />
-    <Compile Include="Wrappers\EventBroker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripts\Core\GenericEventBroker.cs" />
+    <Compile Include="Scripts\Wrappers\EventBroker.cs" />
+    <Compile Include="Scripts\Wrappers\KeyedEventBroker.cs" />
+    <Compile Include="Scripts\Wrappers\StaticEventBroker.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="IBrokerEvents\IBrokerEvents.csproj">
+    <Folder Include="Scripts" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="EventBroker.Interfaces\EventBroker.Interfaces.csproj">
       <Project>{8ab4a4af-5220-465d-8b8b-6229f20fb80b}</Project>
-      <Name>IBrokerEvents</Name>
+      <Name>EventBroker.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

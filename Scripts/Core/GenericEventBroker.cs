@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using BRM.TheDebugAdapter.Interfaces.V1;
+using BRM.DebugAdapter.Interfaces;
 
 namespace BRM.EventBroker.Implementations.V1
 {
@@ -14,7 +14,7 @@ namespace BRM.EventBroker.Implementations.V1
             _debugger = debugger;
         }
 
-        public void Subscribe<T>(TKey key, Action<T> onPublish) where T : class
+        public void Subscribe<T>(TKey key, Action<T> onPublish)
         {
             List<object> subscriptions;
             if (!_events.TryGetValue(key, out subscriptions))
@@ -25,7 +25,7 @@ namespace BRM.EventBroker.Implementations.V1
             subscriptions.Add(onPublish);
         }
 
-        public void Unsubscribe<T>(TKey key, Action<T> onPublish) where T : class
+        public void Unsubscribe<T>(TKey key, Action<T> onPublish)
         {
             List<object> subscriptions;
             if (_events.TryGetValue(key, out subscriptions))
@@ -34,16 +34,16 @@ namespace BRM.EventBroker.Implementations.V1
             }
         }
 
-        public void Publish<T>(TKey key, T data) where T : class
+        public void Publish<T>(TKey key, T data)
         {
             List<object> subscriptions;
             if (!_events.TryGetValue(key, out subscriptions))
             {
-                _debugger?.LogWarningFormat("No subscriptions found for event type: {0}", typeof(T).ToString());
+                _debugger?.LogWarningFormat("No subscriptions found for event type: {0}", typeof(T));
                 return;
             }
             
-            _debugger?.LogFormat("Publishing {0}", typeof(T).ToString());
+            _debugger?.LogFormat("Publishing {0}", typeof(T));
             for (int i = subscriptions.Count - 1; i >= 0; i--)
             {
                 if (i >= subscriptions.Count)

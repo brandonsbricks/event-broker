@@ -1,6 +1,6 @@
 using System;
-using BRM.EventBroker.Interfaces.V1;
-using BRM.TheDebugAdapter.Interfaces.V1;
+using BRM.EventBroker.Interfaces;
+using BRM.DebugAdapter.Interfaces;
 
 namespace BRM.EventBroker.Implementations.V1
 {

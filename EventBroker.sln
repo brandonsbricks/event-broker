@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBroker", "EventBroker.csproj", "{E26D51A4-C10C-49B5-A3D7-187AE9C922D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IBrokerEvents", "IBrokerEvents\IBrokerEvents.csproj", "{8AB4A4AF-5220-465D-8B8B-6229F20FB80B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBroker.Interfaces", "EventBroker.Interfaces\EventBroker.Interfaces.csproj", "{8AB4A4AF-5220-465D-8B8B-6229F20FB80B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
