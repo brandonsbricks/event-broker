@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using BRM.DebugAdapter.Interfaces;
 
-namespace BRM.EventBroker.Implementations.V1
+namespace BRM.EventBroker
 {
     internal class GenericEventBroker<TKey>
     {

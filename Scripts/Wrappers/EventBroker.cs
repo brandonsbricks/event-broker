@@ -2,7 +2,7 @@ using System;
 using BRM.EventBroker.Interfaces;
 using BRM.DebugAdapter.Interfaces;
 
-namespace BRM.EventBroker.Implementations.V1
+namespace BRM.EventBroker
 {
     /// <summary>
     /// Wrapper for <see cref="GenericEventBroker"/> using <typeparamref name="Type"/> for keys
