@@ -7,8 +7,8 @@
     <ProjectGuid>{E26D51A4-C10C-49B5-A3D7-187AE9C922D7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EventBroker</RootNamespace>
-    <AssemblyName>EventBroker</AssemblyName>
+    <RootNamespace>BRM.EventBroker</RootNamespace>
+    <AssemblyName>BRM.EventBroker</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,8 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IDebug, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\TheDebugAdapter\Builds\IDebug.dll</HintPath>
+    <Reference Include="BRM.DebugAdapter.Interfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\..\DebugAdapter\Builds\BRM.DebugAdapter.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,9 +51,9 @@
     <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="EventBroker.Interfaces\EventBroker.Interfaces.csproj">
+    <ProjectReference Include="..\BRM.EventBroker.Interfaces\BRM.EventBroker.Interfaces.csproj">
       <Project>{8ab4a4af-5220-465d-8b8b-6229f20fb80b}</Project>
-      <Name>EventBroker.Interfaces</Name>
+      <Name>BRM.EventBroker.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
