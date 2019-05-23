@@ -1,6 +1,6 @@
 using System;
 
-namespace BRM.EventBroker.Interfaces
+namespace BRM.EventBrokers.Interfaces
 {
     /// <summary>
     /// Decouples event processing from event publishing

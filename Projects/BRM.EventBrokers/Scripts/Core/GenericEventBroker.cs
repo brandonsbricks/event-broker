@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using BRM.DebugAdapter.Interfaces;
 
-namespace BRM.EventBroker
+namespace BRM.EventBrokers
 {
-    internal class GenericEventBroker<TKey>
+    internal sealed class GenericEventBroker<TKey>
     {
         private readonly Dictionary<TKey, List<object>> _events = new Dictionary<TKey, List<object>>();
         private readonly IDebug _debugger;

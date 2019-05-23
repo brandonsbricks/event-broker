@@ -1,6 +1,6 @@
 using System;
 
-namespace BRM.EventBroker.Interfaces
+namespace BRM.EventBrokers.Interfaces
 {
     public interface IBrokerKeyedEvents
     {

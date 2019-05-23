@@ -7,9 +7,9 @@
     <ProjectGuid>{8AB4A4AF-5220-465D-8B8B-6229F20FB80B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IBrokerEvents</RootNamespace>
-    <AssemblyName>BRM.EventBroker.Interfaces</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RootNamespace>BRM.EventBrokers.Interfaces</RootNamespace>
+    <AssemblyName>BRM.EventBrokers.Interfaces</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -43,6 +43,15 @@
     <Compile Include="Scripts\IBrokerKeyedEvents.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
+  <ItemGroup>
+    <_dll Include="$(TargetDir)\$(ProjectName).dll" />
+    <_pdb Include="$(TargetDir)\$(ProjectName).pdb" />
+  </ItemGroup>
+  <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release' ">
+    <Copy SourceFiles="@(_dll)" DestinationFolder="$(SolutionDir)\Builds\" ContinueOnError="true" SkipUnchangedFiles="false" />
+    <Copy SourceFiles="@(_pdb)" DestinationFolder="$(SolutionDir)\Builds\" ContinueOnError="true" SkipUnchangedFiles="false" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
          Other similar extension points exist, see Microsoft.Common.targets.
     <Target Name="BeforeBuild">

@@ -7,9 +7,9 @@
     <ProjectGuid>{E26D51A4-C10C-49B5-A3D7-187AE9C922D7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BRM.EventBroker</RootNamespace>
-    <AssemblyName>BRM.EventBroker</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RootNamespace>BRM.EventBrokers</RootNamespace>
+    <AssemblyName>BRM.EventBrokers</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -50,13 +50,23 @@
   <ItemGroup>
     <Folder Include="Scripts" />
   </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
   <ItemGroup>
-    <ProjectReference Include="..\BRM.EventBroker.Interfaces\BRM.EventBroker.Interfaces.csproj">
+    <_dll Include="$(TargetDir)\$(ProjectName).dll" />
+    <_pdb Include="$(TargetDir)\$(ProjectName).pdb" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BRM.EventBrokers.Interfaces\BRM.EventBrokers.Interfaces.csproj">
       <Project>{8ab4a4af-5220-465d-8b8b-6229f20fb80b}</Project>
-      <Name>BRM.EventBroker.Interfaces</Name>
+      <Name>BRM.EventBrokers.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release' ">
+    <Copy SourceFiles="@(_dll)" DestinationFolder="$(SolutionDir)\Builds\" ContinueOnError="true" SkipUnchangedFiles="false" />
+    <Copy SourceFiles="@(_pdb)" DestinationFolder="$(SolutionDir)\Builds\" ContinueOnError="true" SkipUnchangedFiles="false" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
          Other similar extension points exist, see Microsoft.Common.targets.
     <Target Name="BeforeBuild">

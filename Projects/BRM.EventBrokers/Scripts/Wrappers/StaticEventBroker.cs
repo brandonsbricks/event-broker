@@ -1,13 +1,13 @@
 using System;
-using BRM.EventBroker.Interfaces;
+using BRM.EventBrokers.Interfaces;
 using BRM.DebugAdapter.Interfaces;
 
-namespace BRM.EventBroker
+namespace BRM.EventBrokers
 {
     /// <summary>
     /// Wrapper to a static instance of an <see cref="EventBroker"/>
     /// </summary>
-    public class StaticEventBroker : IBrokerEvents, IPublishEvents
+    public sealed class StaticEventBroker : IBrokerEvents, IPublishEvents
     {
         private static EventBroker _broker;
 

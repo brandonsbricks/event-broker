@@ -1,13 +1,13 @@
 using System;
-using BRM.EventBroker.Interfaces;
+using BRM.EventBrokers.Interfaces;
 using BRM.DebugAdapter.Interfaces;
 
-namespace BRM.EventBroker
+namespace BRM.EventBrokers
 {
     /// <summary>
-    /// Wrapper for <see cref="GenericEventBroker"/> using <typeparamref name="Type"/> for keys
+    /// Wrapper for <see cref="GenericEventBroker{TKey}"/> using <typeparamref name="Type"/> for keys
     /// </summary>
-    public class EventBroker : IBrokerEvents, IPublishEvents
+    public sealed class EventBroker : IBrokerEvents, IPublishEvents
     {
         private GenericEventBroker<Type> _broker;
         
